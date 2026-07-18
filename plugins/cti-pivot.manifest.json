@@ -1,0 +1,34 @@
+{
+  "identifier": "run.vineyard.pluginpacks.cti_pivot",
+  "content_type": "vineyard:pluginpack",
+  "name": "CTI Pivot",
+  "version": "1.0.0",
+  "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
+  "author": {
+    "name": "vineyard-run",
+    "url": "https://github.com/vineyard-run"
+  },
+  "license": "Apache-2.0",
+  "icon": "git-fork",
+  "platforms": {
+    "primary": "web",
+    "web": {
+      "runtime": "sandbox-js",
+      "entry": "inline"
+    }
+  },
+  "plugins": [
+    {
+      "identifier": "run.vineyard.plugins.shared_attribute_pivot",
+      "content_type": "vineyard:plugin",
+      "name": "Shared-Attribute Pivot",
+      "version": "1.0.0",
+      "description": "Clusters the selected (or whole-graph) infrastructure by discriminating shared observables — registrar, nameserver, announcing ASN, TLS certificate — and links each cluster with a \"shared X\" edge. The CTI attribution analogue of identity resolution. No network.",
+      "icon": "git-fork",
+      "platforms": { "primary": "web", "web": { "runtime": "sandbox-js", "entry": "inline" } },
+      "io": { "consumes": [], "produces": [] },
+      "scopes": { "graph": ["node:read", "edge:read", "edge:create"] },
+      "lifecycle": { "persistence": "opt-in", "controls": ["progress", "cancel"], "progress": "determinate" }
+    }
+  ]
+}
