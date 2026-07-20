@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "CTI Pivot",
   "version": "1.0.0",
-  "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
+  "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis \u2014 no network, no keys.",
   "author": {
     "name": "vineyard-run",
     "url": "https://github.com/vineyard-run"
@@ -14,7 +14,7 @@
     "primary": "web",
     "web": {
       "runtime": "sandbox-js",
-      "entry": "inline"
+      "entry": "dist/pack.mjs"
     }
   },
   "plugins": [
@@ -23,12 +23,34 @@
       "content_type": "vineyard:plugin",
       "name": "Shared-Attribute Pivot",
       "version": "1.0.0",
-      "description": "Clusters the selected (or whole-graph) infrastructure by discriminating shared observables — registrar, nameserver, announcing ASN, TLS certificate — and links each cluster with a \"shared X\" edge. The CTI attribution analogue of identity resolution. No network.",
+      "description": "Clusters the selected (or whole-graph) infrastructure by discriminating shared observables \u2014 registrar, nameserver, announcing ASN, TLS certificate \u2014 and links each cluster with a \"shared X\" edge. The CTI attribution analogue of identity resolution. No network.",
       "icon": "git-fork",
-      "platforms": { "primary": "web", "web": { "runtime": "sandbox-js", "entry": "inline" } },
-      "io": { "consumes": [], "produces": [] },
-      "scopes": { "graph": ["node:read", "edge:read", "edge:create"] },
-      "lifecycle": { "persistence": "opt-in", "controls": ["progress", "cancel"], "progress": "determinate" }
+      "platforms": {
+        "primary": "web",
+        "web": {
+          "runtime": "sandbox-js",
+          "entry": "dist/pack.mjs"
+        }
+      },
+      "io": {
+        "consumes": [],
+        "produces": []
+      },
+      "scopes": {
+        "graph": [
+          "node:read",
+          "edge:read",
+          "edge:create"
+        ]
+      },
+      "lifecycle": {
+        "persistence": "opt-in",
+        "controls": [
+          "progress",
+          "cancel"
+        ],
+        "progress": "determinate"
+      }
     }
   ]
 }
