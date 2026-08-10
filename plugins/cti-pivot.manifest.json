@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis \u2014 no network, no keys.",
   "author": {
-    "name": "vineyard-run",
+    "name": "VINEYARD",
     "url": "https://github.com/vineyard-run"
   },
   "license": "Apache-2.0",
